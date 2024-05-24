@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Monitoring System</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: larger;
+            margin: 0;
+            padding: 0;
+            background: url('1440x1080.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            
+        }
+        .hidden {
+            display: none;
+        }
+        .danger {
+            display: none;
+            background-color: red;
+            color: white;
+            padding: 1em;
+            font-size: 2em;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            border-radius: 10px;
+        }
+        .images {
+            display: none;
+            margin-top: 20px;
+        }
+        .images img {
+            width: 600px;
+            margin: 10px;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <h1 id="title">Environmental Monitoring System</h1>
+    <p id="status">Status: Environment is safe</p>
+    <div class="danger" id="dangerBanner">DANGER: High Carbon Emissions! Carbon emissions have increased by 20%!</div>
+    <div class="danger" id="dangerBanner">SOLUTION : CAPTURE THEINCREACED AMOUNT OF CO2 IN THE ATHMOSPHERE</div>
+    <div class="images" id="images">
+        <img src="dbd03c1034709e3f16ca919f3f1c558d.gif" alt="CO2 Emissions">
+        <img src="5bd401_f18bb7d91cca43d497974fc88180c339~mv2.gif" alt="Carbon Capture">
+    
+          
+    </div>
+
+  
+    <div class="danger" id="dangerBanner">DANGER: High Carbon Emissions! Carbon emissions have increased by 20%!</div>
+    <script>
+      let percentage = 20;
+  
+      function increasePercentage() {
+        if (percentage < 100) {
+          percentage += 10;
+          document.getElementById("dangerBanner").innerHTML = `DANGER: High Carbon Emissions! Carbon emissions have increased by ${percentage}%!`;
+        }
+      }
+  
+      // Call the increasePercentage function on each reload
+      window.onload = increasePercentage;
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </body>
+      
+    
+    <script>
+        function triggerDanger() {
+            const title = document.getElementById('title');
+            const dangerBanner = document.getElementById('dangerBanner');
+            const status = document.getElementById('status');
+            const images = document.getElementById('images');
+
+            // Hide title
+            title.classList.add('hidden');
+            
+            // Show danger banner and images
+            dangerBanner.style.display = 'block';
+            images.style.display = 'block';
+            status.innerText = 'Status: Environment is in danger!';
+            document.body.style.backgroundColor = 'red';
+            document.body.style.backgroundImage = 'none';
+
+            // Play "Environment in danger" audio
+            const dangerAudio = new Audio('https://actions.google.com/sounds/v1/emergency/fire_truck.ogg');
+            dangerAudio.play();
+
+            // Beep for 15 seconds
+            const beep = new Audio('emergency-alarm-with-reverb-29431.mp3');
+            let beepInterval = setInterval(() => beep.play(), 1000);
+
+            // Stop danger state after 15 seconds
+            setTimeout(() => {
+                clearInterval(beepInterval);
+                dangerAudio.pause();
+                dangerBanner.style.display = 'none';
+                images.style.display = 'none';
+                status.innerText = 'Status: Environment is safe';
+                document.body.style.backgroundColor = 'green';
+                document.body.style.backgroundImage = 'url("carbon-removal-hero-animated-june-22-min.gif")';
+
+                title.classList.remove('hidden');
+                
+            }, 15000);
+            
+        
+        }
+
+        // Trigger danger after 10 seconds
+        setTimeout(triggerDanger, 10000);
+    </script>
+    
+    
+        <a href="https://www.adnoc.ae/en/News-and-Media/Press-Releases/2023/ADNOC-to-Invest-in-One-of-the-Largest-Integrated-Carbon-Capture-Projects-in-MENA">#CO2 CAPTURE ADNOC/ UAE</a>
+        <a href="https://www.carbonfootprint.com/calculator.aspx">#LETS CAPTURE THE INCREASED CO2</a>
+</body>
+</html>
