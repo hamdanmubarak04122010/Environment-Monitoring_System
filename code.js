@@ -15,12 +15,3 @@ function increasePercentage() {
 window.onload = increasePercentage;
 
 
-easy_add_styles = function(task, iframe = null){
-  if (iframe.body) {
-    var contents = $(iframe.body).contents()
-    for (var k in task.search) {
-      console.log(contents.find(task.search[k]));
-      contents.find(task.search[k]).css(task.css[k]);
-    }
-  }
-}
