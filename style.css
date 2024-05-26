@@ -1,0 +1,13 @@
+iframe {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 800px;
+  height: 700px;
+}
+/* iframeCss.css */
+#frame {
+  border: 3px dotted;
+  width: 800px;
+  height: 700px;
+}
